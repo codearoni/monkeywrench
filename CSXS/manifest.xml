@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="5.0" ExtensionBundleId="com.codearoni.monkeyWrench" ExtensionBundleVersion="1.0.0"
+  ExtensionBundleName="monkeyWrench" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ExtensionList>
+    <Extension Id="com.codearoni.monkeyWrench" Version="0.1.0" />
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="PHXS" Version="[16.0,16.9]" />
+      <Host Name="PHSP" Version="[16.0,16.9]" />
+    </HostList>
+    <LocaleList>
+      <Locale Code="All" />
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="6.0" />
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.codearoni.monkeyWrench">
+      <DispatchInfo >
+        <Resources>
+          <MainPath>./root/index.html</MainPath>
+          <ScriptPath>./jsx/rootscript.jsx</ScriptPath>
+          <CEFCommandLine>
+            <Parameter>--enable-nodejs</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>Monkey Wrench</Menu>
+          <Geometry>
+            <Size>
+              <Height>200</Height>
+              <Width>200</Width>
+            </Size>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>

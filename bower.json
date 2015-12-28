@@ -1,0 +1,24 @@
+{
+  "name": "monkeyWrench",
+  "version": "0.1.0",
+  "description": "Extendscript testing platform",
+  "main": "root/index.html",
+  "authors": [
+    "codearoni"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.8",
+    "bourbon": "~4.2.6",
+    "bitters": "~1.1.0",
+    "neat": "~1.7.2"
+  }
+}
