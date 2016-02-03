@@ -8,19 +8,18 @@
   <link rel="stylesheet" href="../css/app.css">
   <!-- endinject -->
 </head>
-<body ng-app="monkeyWrench">
-  <h1>Monkey Wrench</h1>
+<body ng-app="monkeyWrench" class="main-container">
   <div ng-controller="MainCtrl">
-    <div>
-      <button ng-click="FetchScripts()">Fetch Scripts</button>
+    <div class="row">
+      <button ng-click="FetchScripts()" class="button-container">Fetch Scripts</button>
     </div>
-    <div>
+    <div class="row">
       <select ng-model="selectedScript">
         <option ng-repeat="script in scriptList">{{script}}</option>
       </select>
     </div>
-    <div>
-      <button ng-click="RunScript()">Run</button>
+    <div class="row">
+      <button ng-click="RunScript()" class="button-container">Run</button>
     </div>
   </div>
 <script>window.jQuery = jQuery = require('../bower_components/jquery/dist/jquery.min.js')</script>

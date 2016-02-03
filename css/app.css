@@ -182,4 +182,23 @@ html {
   box-sizing: inherit; }
 
 body {
-  background-color: #5D5D5D; }
+  background-color: #FGFGFG; }
+
+main-container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  main-container::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+button-container {
+  width: 100%; }
+
+row {
+  display: block; }
+  row::after {
+    clear: both;
+    content: "";
+    display: table; }

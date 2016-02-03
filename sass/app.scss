@@ -3,5 +3,17 @@
 @import "../bower_components/neat/app/assets/stylesheets/_neat.scss";
 
 body {
-  background-color: #5D5D5D;
+  background-color: #FGFGFG;
+}
+
+main-container {
+  @include outer-container;
+}
+
+button-container {
+  @include fill();
+}
+
+row {
+  @include row();
 }

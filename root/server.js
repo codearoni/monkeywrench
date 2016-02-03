@@ -1,17 +1,17 @@
-console.log(process.version);
 var fs = require('fs'),
     path = require('path'),
     Hapi = require('hapi'),
     server = new Hapi.Server(),
-    extensionPath = '';
+    extensionPath = '',
+    PORT = 14416;
 
-server.connection({ port: 14416 });
+server.connection({ port: PORT });
 
 server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('Hello, world!');
+        reply('Monkey Wrench!');
     }
 });
 

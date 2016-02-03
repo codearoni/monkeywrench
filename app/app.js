@@ -1,24 +1,18 @@
-// (function($){
-//   var csInterface = new CSInterface();
-//   var jsxPath = csInterface.getSystemPath(SystemPath.EXTENSION) + '/jsx';
-//
-//   csInterface.evalScript('$.init.evalFiles("' + jsxPath + '")');
-//
-//   $("#callJsx").click(function () {
-//     csInterface.evalScript("$.getExampleObject", function (result) {
-//       var exampleObject = JSON.parse(result);
-//       console.debug(exampleObject);
-//       $("#message span").text(exampleObject.message);
-//     });
-//   });
-//
-// })(jQuery);
-
 angular.module('monkeyWrench', [])
   .config(function ($logProvider) {
       $logProvider.debugEnabled(true);
   })
   .run(function ($rootScope, $log, $http) {
+
+       var serverConfig = {
+        protocol: 'http',
+        address: 'localhost',
+        port: '14416'
+      };
+
+      $rootScope.initRoute = serverConfig.protocol + '://' + serverConfig.address + ':' + serverConfig.port + '/init';
+      $rootScope.scriptRoute = serverConfig.protocol + '://' + serverConfig.address + ':' + serverConfig.port + '/scripts';
+      $rootScope.runRoute = serverConfig.protocol + '://' + serverConfig.address + ':' + serverConfig.port + '/run';
 
       $rootScope.csInterface = new CSInterface();
       var jsxPath = $rootScope.csInterface.getSystemPath(SystemPath.EXTENSION) + '/jsx';
@@ -28,7 +22,7 @@ angular.module('monkeyWrench', [])
           extension: $rootScope.csInterface.getSystemPath(SystemPath.EXTENSION)
       };
       var init = function () {
-          $http.post('http://localhost:14416/init', pathData).then(function (res) {
+          $http.post($rootScope.initRoute, pathData).then(function (res) {
               $log.log(res.data);
           }, function (err) {
               $log.warn('There was an error initializing the app');
@@ -41,7 +35,7 @@ angular.module('monkeyWrench', [])
 angular.module('monkeyWrench')
   .service('ServerService', function ($rootScope, $http, $log) {
       this.FetchScripts = function (cb) {
-          $http.get('http://localhost:14416/scripts').then(function (res) {
+          $http.get($rootScope.scriptRoute).then(function (res) {
               cb(res.data);
           }, function (err) {
               $log.warn('There was an error connecting to the server');
@@ -49,7 +43,7 @@ angular.module('monkeyWrench')
           });
       };
       this.RunScript = function (scriptName) {
-          $http.post('http://localhost:14416/run', {name: scriptName}).then(function (res) {
+          $http.post($rootScope.runRoute, {name: scriptName}).then(function (res) {
               $rootScope.csInterface.evalScript(res.data);
           }, function (err) {
               $log.warn('There was an error connecting to the server');

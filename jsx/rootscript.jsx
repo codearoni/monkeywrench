@@ -7,7 +7,7 @@ if(typeof JSON!=='object'){JSON={};}(function(){'use strict';function f(n){retur
 * Array.forEach - from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 */
 Array.prototype.forEach||(Array.prototype.forEach=function(r,t){var o,n;if(null==this)throw new TypeError(" this is null or not defined");var e=Object(this),i=e.length>>>0;if("function"!=typeof r)throw new TypeError(r+" is not a function");for(arguments.length>1&&(o=t),n=0;i>n;){var a;n in e&&(a=e[n],r.call(o,a,n,e)),n++}});
-/* jshint ignore:end */
+
 if (typeof($) === 'undefined') {
   $ = {};
 }
@@ -31,10 +31,3 @@ $.init = {
         }
     }
 };
-
-var obj = {
-  name: "monkeyWrench",
-  message: "Hello from Gizmo!"
-};
-
-$.getExampleObject = JSON.stringify(obj);
