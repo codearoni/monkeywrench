@@ -11,7 +11,7 @@ main-container {
 }
 
 button-container {
-  @include fill();
+  @include fill-parent();
 }
 
 row {
